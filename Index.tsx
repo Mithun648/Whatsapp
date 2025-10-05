@@ -1,21 +1,19 @@
-import { useState } from "react";
-import Sidebar from "@/components/Sidebar";
 import ChatArea from "@/components/ChatArea";
-import { mockConversations, mockMessages } from "@/data/mockData";
+import { mockMessages } from "@/data/mockData";
 
 const Index = () => {
-  const [selectedConversation, setSelectedConversation] = useState(mockConversations[0].id);
+  const girlfriend = {
+    id: "1",
+    name: "My Love ❤️",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=girlfriend",
+    online: true,
+  };
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Sidebar
-        conversations={mockConversations}
-        selectedId={selectedConversation}
-        onSelect={setSelectedConversation}
-      />
       <ChatArea
-        conversation={mockConversations.find(c => c.id === selectedConversation)!}
-        messages={mockMessages[selectedConversation] || []}
+        conversation={girlfriend}
+        messages={mockMessages["1"] || []}
       />
     </div>
   );
